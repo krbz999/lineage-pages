@@ -1,0 +1,25 @@
+<form>
+  <p class="note">{{localize "LINEAGE_PAGES.SettingsPacksDetails"}}</p>
+  <section class="items">
+    <h2>{{localize "TYPES.Item.racePl"}}</h2>
+    {{#each model.packs}}
+    <div class="form-group">
+      <div class="form-fields">
+        <select name="packs">{{selectOptions ../selectOptions selected=this blank="-" sort=true}}</select>
+        <a data-action="delete"><i class="fa-solid fa-trash"></i></a>
+      </div>
+    </div>
+    {{/each}}
+    <div class="form-group">
+      <div class="form-fields">
+        <select name="packs">{{selectOptions selectOptions blank="-" sort=true}}</select>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <button type="submit">
+      <i class="fa-solid fa-save"></i> {{localize "Save"}}
+    </button>
+  </footer>
+</form>

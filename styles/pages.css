@@ -1,0 +1,109 @@
+.lineage-pages {
+  min-width: 500px;
+  min-height: 400px;
+}
+.lineage-pages .content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* The top nav. */
+.lineage-pages .lineage-nav {
+  display: flex;
+  border-style: groove;
+  height: 4em;
+  justify-content: space-between;
+}
+.lineage-pages .lineage-nav button {
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  min-width: 5em;
+  max-width: 5em;
+}
+.lineage-pages .lineage-nav button:hover {
+  text-shadow: 0 0 5px var(--color-shadow-primary);
+}
+.lineage-pages .lineage-nav button .fa-solid {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lineage-pages .gallery {
+  overflow: hidden;
+  border-right: groove;
+  border-left: groove;
+  flex: 1;
+  display: flex;
+  gap: 5px;
+}
+.lineage-pages .gallery img {
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+.lineage-pages .gallery img:not(.active, :hover) {
+  filter: opacity(0.5) blur(1px) sepia(1);
+}
+
+/* The actual page. */
+.lineage-pages .lineage {
+  border: 4px inset;
+  padding: 0 1em;
+  margin-top: 1em;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.lineage-pages .lineage .item {
+  text-align: center;
+  overflow: hidden;
+}
+.lineage-pages .lineage .description {
+  border-top: 1px groove gray;
+  flex: 1;
+  overflow: hidden auto;
+  user-select: text;
+}
+.lineage-pages .lineage .description > * {
+  user-select: auto;
+}
+.lineage-pages .lineage .item .content-link {
+  border: none;
+  background: none;
+  font-family: 'Modesto Condensed';
+  font-size: 60px;
+  height: 60px;
+}
+.lineage-pages .lineage .backdrop {
+  width: calc(100% + 2em + 4px);
+  left: calc(-1em - 2px);
+  top: calc(-1em - 2px);
+  -webkit-mask-image: linear-gradient(180deg, black 80%, transparent);
+  mask-image: linear-gradient(180deg, black 80%, transparent);
+  max-width: unset;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: 0 0;
+  border: none;
+  position: relative;
+  aspect-ratio: 2/1;
+}
+
+/* LINEAGE PAGES PACK SETTINGS */
+.lineage-pages-pack-settings .form-fields select {
+  flex: 1;
+}
+.lineage-pages-pack-settings .form-fields a {
+  flex: none;
+}
+
+/* LINEAGE PAGES ART SETTINGS */
+.lineage-pages-art-settings .form-group label {
+  flex: 1;
+}

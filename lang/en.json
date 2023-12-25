@@ -1,0 +1,10 @@
+{
+  "LINEAGE_PAGES.LineagePages": "Lineage Pages",
+  "LINEAGE_PAGES.SettingsArt": "Art Settings",
+  "LINEAGE_PAGES.SettingsArtBackdrop": "Backdrop Image",
+  "LINEAGE_PAGES.SettingsArtDetails": "Enter the backdrop image used on the race item's page.",
+  "LINEAGE_PAGES.SettingsArtTitle": "Lineage Pages Art",
+  "LINEAGE_PAGES.SettingsPacks": "Sources",
+  "LINEAGE_PAGES.SettingsPacksDetails": "Select the compendium packs that the lineage pages should derive race items from.",
+  "LINEAGE_PAGES.SettingsPacksTitle": "Lineage Pages Sources"
+}
