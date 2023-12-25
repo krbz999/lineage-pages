@@ -8,10 +8,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      # Create zip file
-      - run: zip -r ./module.zip module.json LICENSE scripts/ lang/ styles/ templates/
+      # Get part of the tag after the `v`.
+      - name: Extract tag version number
+        id: get_version
+        uses: battila7/get-version-action@v2
+
+      # Modify manifest version, download, remove hotreload.
+      - name: Modify Manifest to remove HotReload
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: "module.json"
+        env:
+          flags.hotReload: false
+          version: ${{steps.get_version.outputs.version-without-v}}
+          download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.zip
+
+      # Create zip file.
+      - name: Create ZIP archive
+        run: zip -r ./module.zip module.json lang/ scripts/ styles/ templates/
 
       # Create a release for this specific version.
       - name: Update Release with Files
@@ -24,6 +41,6 @@ jobs:
           draft: false
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: "./module.json, ./module.zip"
+          artifacts: "./system.json, ./system.zip"
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
